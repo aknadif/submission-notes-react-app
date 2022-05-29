@@ -3,12 +3,10 @@ import React from "react";
 function InputTextArea(props) {
   return (
     <div className="relative z-0 w-3/4 mb-6 group">
-      <div className="flex justify-between">
-        <label htmlFor={props.name} className="block mb-2 text-md font-medium text-gray-900 dark:text-gray-400">
-          {props.label}
-        </label>
-        <p className="text-gray-500 absolute right-0">Sisa Karakter: 50</p>
-      </div>
+      <label htmlFor={props.name} className="block mb-2 text-md font-medium text-gray-900 dark:text-gray-400">
+        {props.label}
+      </label>
+
       <textarea
         id={props.name}
         rows="4"
