@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchIcon } from "@heroicons/react/solid";
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className="bg-gray-900 p-4 border-b-2 border-gray-600">
       <div className="container flex flex-col md:flex-row justify-between items-center ">
@@ -20,6 +20,8 @@ function Navbar() {
               id="simple-search"
               className="border text-sm rounded-lg block w-full pl-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
               placeholder="Search"
+              onChange={props.onChange}
+              value={props.value}
               required
             />
           </div>

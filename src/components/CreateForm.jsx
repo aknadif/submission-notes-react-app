@@ -40,7 +40,6 @@ class CreateForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.title);
     return (
       <form className="border-2 border-gray-600 md:w-1/2 mx-auto rounded-lg relative" onSubmit={this.onSubmitEventHandler}>
         <div className="flex flex-wrap justify-center py-5">
