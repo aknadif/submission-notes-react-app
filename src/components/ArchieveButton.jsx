@@ -1,10 +1,15 @@
 import React from "react";
 import { ArchiveIcon } from "@heroicons/react/outline";
 
-function ArchieveButton() {
+function ArchieveButton({ id, onArchive }) {
   return (
     <React.Fragment>
-      <button className="absolute bottom-0 right-0 p-4 bg-yellow-200 rounded-tl-3xl transition-all rounded-br-sm hover:p-8 hover:rounded-tl-full cursor-pointer w-12 h-12">
+      <button
+        className="absolute bottom-0 right-0 p-4 bg-yellow-200 rounded-tl-3xl transition-all rounded-br-sm hover:p-8 hover:rounded-tl-full cursor-pointer w-12 h-12"
+        onClick={() => {
+          onArchive(id);
+        }}
+      >
         <ArchiveIcon className="w-7 h-7 text-gray-900 " />
       </button>
     </React.Fragment>
