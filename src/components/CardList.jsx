@@ -1,11 +1,10 @@
 import React from "react";
 import Card from "./Card";
-import { getInitialData } from "../utils/data-card";
-function CardList() {
+function CardList({ cards, onDelete }) {
   return (
     <div className="flex flex-wrap justify-center">
-      {getInitialData().map((data, index) => (
-        <Card key={index} {...data} />
+      {cards.map((card) => (
+        <Card key={card.id} id={card.id} onDelete={onDelete} {...card} />
       ))}
     </div>
   );
