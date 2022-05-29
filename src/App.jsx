@@ -75,13 +75,13 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Navbar onChange={this.onSearchChangeEventHandler} value={this.state.search} />
-        <div className="bg-gray-900">
-          <div className="border-b-2 border-gray-600 py-6">
-            <h4 className="text-gray-200 text-xl md:text-3xl text-center mb-4">Create Notes</h4>
+        <div className="bg-white dark:bg-gray-900 transition duration-700">
+          <div className="border-b-2 border-sky-400 dark:border-gray-600 py-6">
+            <h4 className="text-sky-600 dark:text-gray-200 text-xl md:text-3xl text-center mb-4">Create Notes</h4>
             <CreateForm addCard={this.onAddCardHandler} />
           </div>
-          <div className="border-b-2 border-gray-600 py-6">
-            <h4 className="text-gray-200 text-xl md:text-3xl text-center lg:text-left px-0 md:px-28">Active Notes</h4>
+          <div className="border-b-2 border-sky-400 dark:border-gray-600 py-6">
+            <h4 className="text-sky-600 dark:text-gray-200 text-xl md:text-3xl text-center lg:text-left px-0 md:px-28">Active Notes</h4>
             {this.state.datas.length > 0 ? (
               <CardList
                 cards={this.state.datas.filter((val) => {
@@ -97,11 +97,11 @@ class App extends React.Component {
                 archived={false}
               />
             ) : (
-              <div className="text-center text-gray-200 text-xl md:text-3xl">Empty Notes</div>
+              <div className="text-center text-sky-600 dark:text-gray-200 text-xl md:text-3xl">Empty Notes</div>
             )}
           </div>
           <div className="py-6">
-            <h4 className="text-gray-200 text-xl md:text-3xl text-center lg:text-right px-0 md:px-28">Archive Notes</h4>
+            <h4 className="text-sky-600 dark:text-gray-200 text-xl md:text-3xl text-center lg:text-right px-0 md:px-28">Archive Notes</h4>
             {this.state.datas.filter((val) => val.archived === true).length > 0 ? (
               <CardList
                 cards={this.state.datas.filter((val) => {
@@ -117,7 +117,7 @@ class App extends React.Component {
                 archived={true}
               />
             ) : (
-              <div className="text-center text-gray-200 text-xl md:text-3xl">Empty Notes</div>
+              <div className="text-center text-sky-600 dark:text-gray-200 text-xl md:text-3xl">Empty Notes</div>
             )}
           </div>
         </div>

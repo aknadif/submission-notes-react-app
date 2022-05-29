@@ -43,7 +43,7 @@ class CreateForm extends React.Component {
 
   render() {
     return (
-      <form className="border-2 border-gray-600 md:w-1/2 mx-auto rounded-lg relative" onSubmit={this.onSubmitEventHandler}>
+      <form className="border-2 shadow-lg border-sky-100 dark:border-gray-600 bg-sky-100 dark:bg-gray-800 md:w-1/2 mx-auto rounded-lg relative transition duration-700" onSubmit={this.onSubmitEventHandler}>
         <div className="flex flex-wrap justify-center py-5">
           <Input type="text" name="input_title" placeholder="Title" value={this.state.title} onChange={this.onTitleChangeEventHandler} char={this.state.char} />
           <InputTextArea name="input_body" placeholder="Input body..." label="Body" value={this.state.body} onChange={this.onBodyChangeEventHandler} />

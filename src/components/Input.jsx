@@ -3,7 +3,7 @@ import React from "react";
 function Input(props) {
   return (
     <div className="relative z-0 w-3/4 mb-6 group">
-      <p className="text-gray-500 absolute top-0 right-0 text-sm -mt-2">
+      <p className="text-sky-400 dark:text-gray-500 absolute top-0 right-0 text-sm -mt-2">
         Sisa Karakter: <span>{props.char}</span>
       </p>
       <input
@@ -11,8 +11,8 @@ function Input(props) {
         name={props.name}
         className={
           props.char !== 0
-            ? `block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600  focus:outline-none focus:ring-0 focus:border-blue-600 peer`
-            : `block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600  focus:outline-none focus:ring-0 focus:border-red-600 peer`
+            ? `block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none dark:text-white border-sky-500 dark:border-gray-600  focus:outline-none focus:ring-0 focus:border-sky-800 dark:focus:border-sky-500 peer`
+            : `block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none dark:text-white border-sky-500 dark:border-gray-600  focus:outline-none focus:ring-0 focus:border-red-600 peer`
         }
         placeholder=" "
         value={props.value}
