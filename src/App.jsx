@@ -10,10 +10,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       datas: getInitialData(),
+      search: "",
     };
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onAddCardHandler = this.onAddCardHandler.bind(this);
+    this.onSearchChangeEventHandler = this.onSearchChangeEventHandler.bind(this);
   }
   onDeleteHandler(id) {
     const datas = this.state.datas.filter((data) => data.id !== id);
@@ -35,10 +37,19 @@ class App extends React.Component {
       };
     });
   }
+  onSearchChangeEventHandler(event) {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        search: event.target.value,
+      };
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar onChange={this.onSearchChangeEventHandler} value={this.state.search} />
         <div className="bg-gray-900">
           <div className="border-b-2 border-gray-600 py-6">
             <h4 className="text-gray-200 text-xl md:text-3xl text-center mb-4">Create Notes</h4>
@@ -46,7 +57,21 @@ class App extends React.Component {
           </div>
           <div className="border-b-2 border-gray-600 py-6">
             <h4 className="text-gray-200 text-xl md:text-3xl text-center lg:text-left px-0 md:px-28">Active Notes</h4>
-            <CardList cards={this.state.datas} onDelete={this.onDeleteHandler} />
+            {this.state.datas.length > 0 ? (
+              <CardList
+                cards={this.state.datas.filter((val) => {
+                  if (this.state.search === "") {
+                    return val;
+                  } else if (val.title.toLowerCase().includes(this.state.search.toLocaleLowerCase())) {
+                    return val;
+                  }
+                  return null;
+                })}
+                onDelete={this.onDeleteHandler}
+              />
+            ) : (
+              <div className="text-center text-gray-200 text-xl md:text-3xl">Empty Notes</div>
+            )}
           </div>
           <div className="py-6">
             <h4 className="text-gray-200 text-xl md:text-3xl text-center lg:text-right px-0 md:px-28">Archive Notes</h4>
